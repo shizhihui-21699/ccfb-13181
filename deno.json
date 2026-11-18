@@ -1,0 +1,69 @@
+{
+  "nodeModulesDir": "manual",
+  "tasks": {
+    "dev": "deno run -A --watch=static/,routes/,lib/,components/,islands/ dev.ts",
+    "build": "deno run -A dev.ts build",
+    "start": "deno serve -A _fresh/server.js",
+    "test": "deno task build && deno test -A --no-check",
+    "check": "deno fmt --check . && deno lint . && deno check",
+    "update": "deno run -A -r jsr:@fresh/update .",
+    "admin": "deno run -A cmd/admin.ts"
+  },
+  "lint": {
+    "rules": {
+      "tags": [
+        "fresh",
+        "recommended"
+      ]
+    }
+  },
+  "exclude": [
+    "**/_fresh/*",
+    "data/"
+  ],
+  "imports": {
+    "@/": "./",
+    "fresh": "jsr:@fresh/core@^2.3.3",
+    "preact": "npm:preact@^10.29.1",
+    "@preact/signals": "npm:@preact/signals@^2.9.0",
+    "fflate": "npm:fflate@^0.8.2",
+    "pdf-lib": "npm:pdf-lib@^1.17.1",
+    "@types/node": "npm:@types/node@^22.10.0",
+    "@std/cli": "jsr:@std/cli@^1.0.0",
+    "@std/path": "jsr:@std/path@^1.1.2"
+  },
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.asynciterable",
+      "dom.iterable",
+      "deno.ns"
+    ],
+    "jsx": "precompile",
+    "jsxImportSource": "preact",
+    "jsxPrecompileSkipElements": [
+      "a",
+      "img",
+      "source",
+      "body",
+      "html",
+      "head",
+      "title",
+      "meta",
+      "script",
+      "link",
+      "style",
+      "base",
+      "noscript",
+      "template"
+    ]
+  },
+  "fmt": {
+    "exclude": [
+      "static/app.js",
+      "_fresh/",
+      "node_modules/",
+      "data/"
+    ]
+  }
+}

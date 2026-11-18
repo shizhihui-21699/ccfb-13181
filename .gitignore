@@ -1,4 +1,24 @@
+# dotenv environment variable files
 .env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# Fresh build directory
+_fresh/
+# npm + other dependencies
+node_modules/
+vendor/
+
+
+# 运行时数据：数据库、pepper、举报附件。绝不入库。
+data/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+pepper.key
+
 .env.*
 !.env.example
 *.pem
@@ -12,7 +32,6 @@ secrets.*
 credentials*.json
 .npmrc
 .pypirc
-node_modules/
 __pycache__/
 .venv/
 venv/
