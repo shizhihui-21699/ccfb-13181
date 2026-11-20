@@ -1,0 +1,25 @@
+{
+  "tasks": {
+    "start": "deno run -A --unstable-kv --watch=static/,routes/,islands/,lib/ dev.ts",
+    "serve": "deno run -A --unstable-kv main.ts",
+    "check": "deno fmt --check && deno lint && deno check --unstable-kv main.ts scripts/create_user.ts",
+    "create-user": "deno run -A --unstable-kv scripts/create_user.ts"
+  },
+  "imports": {
+    "$fresh/": "https://deno.land/x/fresh@1.7.3/",
+    "preact": "https://esm.sh/preact@10.22.0",
+    "preact/": "https://esm.sh/preact@10.22.0/",
+    "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
+    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1"
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
+  },
+  "lint": {
+    "rules": {
+      "tags": ["fresh", "recommended"]
+    }
+  },
+  "exclude": ["data/", "fresh.gen.ts"]
+}
